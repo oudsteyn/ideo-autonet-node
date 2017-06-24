@@ -1,3 +1,4 @@
+export * from './market.service';
 export * from './setting.service';
 export * from './status-codes.service';
 export * from './work-order.service';

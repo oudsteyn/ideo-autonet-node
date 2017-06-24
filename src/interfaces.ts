@@ -59,6 +59,22 @@ export interface WorkOrderItem {
   cost: number;
 }
 
+export interface Critera {
+  type: string;
+  rule: string;
+}
+export interface QuoteRequest {
+
+  parts: Array<Part>;
+  critera: Array<Critera>;
+}
+export interface Quote {
+  id: number;
+  cost: number;
+  scheduleDate: Date;
+  expiresAt: Date;
+}
+
 export interface WorkOrder {
       id: number;
 
