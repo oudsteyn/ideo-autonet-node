@@ -3,9 +3,16 @@ import { VehicleEventService } from '../services';
 
 export class VehicleEventController {
 
-  public static put(request: express.Request, response: express.Response) {
+  public static post(request: express.Request, response: express.Response) {
     let event = request.body.event;
 
     return response.send({ event: VehicleEventService.add(event)});
   }
+
+  public static list(request: express.Request, response: express.Response) {
+    let event = request.body.event;
+
+    return response.send({ events: VehicleEventService.list()});
+  }
+
 }

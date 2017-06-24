@@ -1,4 +1,4 @@
-import { WorkOrderController } from './controllers';
+import { WorkOrderController, VehicleEventController } from './controllers';
 import { Setting, StatusCodes } from './services';
 
 import * as bodyParser from 'body-parser';
@@ -23,7 +23,10 @@ export class Server {
     this._app.get('/api/ping', (req: express.Request, res: express.Response) => this.pingResponse(req, res));
 
     this._app.post('/api/vehicle/event', this.validateApiKey,
-      (req: express.Request, res: express.Response) => WorkOrderController.allOpen(req, res));
+      (req: express.Request, res: express.Response) => VehicleEventController.post(req, res));
+
+    this._app.get('/api/vehicle/event', this.validateApiKey,
+      (req: express.Request, res: express.Response) => VehicleEventController.list(req, res));
 
 /*
     this._app.get('/api/work-order', this.validateApiKey,

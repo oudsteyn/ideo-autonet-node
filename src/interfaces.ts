@@ -3,6 +3,7 @@ export interface VehicleEvent {
   id: string;
   createdAt: Date;
   description: string;
+  recordedAt: Date;
 }
 
 export interface Vehicle {
