@@ -1,0 +1,11 @@
+app/**/*.js
+app/*.js
+app/**/*.map
+app/*.map
+node_modules/
+typings/
+.tscache
+npm-debug.log
+tscommand-*.tmp.txt
+.DS_Store
+.env

@@ -1,0 +1,10 @@
+applications:
+- name: ideo-autonet-node
+  memory: 128M
+  buildpack: nodejs_buildpack
+  #command:  DEBUG=express:* node app.js
+  command:  node lib/app.js
+#services:
+#  - uaa101
+#env:
+#    baseApiUrl: https://base.api.url/
