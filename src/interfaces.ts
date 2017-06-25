@@ -81,6 +81,7 @@ export interface QuoteRequest {
 
 export interface Quote {
   id: number;
+  vehicle: Vehicle;
   cost: number;
   scheduleDate: Date;
   expiresAt: Date;
@@ -111,7 +112,6 @@ export interface WorkOrder {
 
       createdAt: Date;
 
-      customer: Person;
       vehicle: Vehicle;
 
       scheduledDate: Date;
