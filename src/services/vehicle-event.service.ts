@@ -13,6 +13,8 @@ export class VehicleEventService {
   }
 
   public static list(): Array<VehicleEvent> {
-    return this.events;
+    return this.events.sort((a, b) => {
+      return b.createdAt.getTime() - a.createdAt.getTime();
+    });
   }
 }
