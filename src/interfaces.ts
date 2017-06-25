@@ -109,14 +109,10 @@ export interface GeoCoordinate {
 
 export interface WorkOrder {
       id: number;
-
+      status: string;
       createdAt: Date;
-
       vehicle: Vehicle;
-
       scheduledDate: Date;
-
       laborCost: number;
-
       items: Array<WorkOrderItem>;
 }

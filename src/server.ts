@@ -35,16 +35,17 @@ export class Server {
       (req: express.Request, res: express.Response) => ScheduleController.post(req, res));
 
 
-/*
     this._app.get('/api/work-order', this.validateApiKey,
-      (req: express.Request, res: express.Response) => WorkOrderController.allOpen(req, res));
+      (req: express.Request, res: express.Response) => WorkOrderController.list(req, res));
 
-    this._app.put('/api/work-order/:id',
-      (req: express.Request, res: express.Response) => WorkOrderController.single(req, res, req.params.id));
+    this._app.get('/api/work-order/open', this.validateApiKey,
+      (req: express.Request, res: express.Response) => WorkOrderController.listOpen(req, res));
 
-    this._app.put('/api/work-order', this.validateApiKey,
+    this._app.get('/api/work-order/:id', this.validateApiKey,
+      (req: express.Request, res: express.Response) => WorkOrderController.get(req, res, req.params.id));
+
+    this._app.put('/api/work-order',
       (req: express.Request, res: express.Response) => WorkOrderController.put(req, res));
-*/
 
     this._app.use(this.logErrors);
     this._app.use(this.clientErrorHandler);
