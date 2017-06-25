@@ -1,4 +1,6 @@
-
+export interface Appointment {
+  status: string;
+}
 export interface VehicleEvent {
   id: string;
   createdAt: Date;
@@ -10,6 +12,7 @@ export interface Vehicle {
   year: number;
   make: string;
   model: string;
+  vin: string;
   licensePlate: string;
   odometer: number;
 }
@@ -45,7 +48,7 @@ export interface Customer extends Person {
 export interface Part {
   manufacture: string;
   number: string;
-  description; string;
+  description: string;
 }
 
 export interface VehiclePart extends Part {
@@ -63,16 +66,44 @@ export interface Critera {
   type: string;
   rule: string;
 }
-export interface QuoteRequest {
 
+export interface Service {
+  type: string;
   parts: Array<Part>;
   critera: Array<Critera>;
 }
+
+export interface QuoteRequest {
+  location: GeoCoordinate;
+  vehicle: Vehicle;
+  services: Array<Service>;
+}
+
 export interface Quote {
   id: number;
   cost: number;
   scheduleDate: Date;
   expiresAt: Date;
+  distance: number;
+  estimatedTimeInShop: number;
+  repairLocation: RepairLocation;
+  parts: Array<Part>;
+}
+
+export interface RepairLocation {
+  id: number;
+  name: string;
+
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  location: GeoCoordinate;
+}
+
+export interface GeoCoordinate {
+  latitude: number;
+  longitude: number;
 }
 
 export interface WorkOrder {
