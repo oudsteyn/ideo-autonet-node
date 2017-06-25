@@ -3,7 +3,7 @@ applications:
   memory: 128M
   buildpack: nodejs_buildpack
   #command:  DEBUG=express:* node app.js
-  command:  node lib/app.js
+  command:  node app/index.js
 #services:
 #  - uaa101
 #env:
