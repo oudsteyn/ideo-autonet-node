@@ -1,4 +1,3 @@
-
 export class Setting {
 
   public static serverPort(): string {
@@ -15,6 +14,10 @@ export class Setting {
 
   public static apiKey(): string {
     return process.env.apiKey;
+  }
+
+  public static localTimeZone(): string {
+    return process.env.localTimeZone;
   }
 
 }

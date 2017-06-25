@@ -1,4 +1,5 @@
 import { Part, Quote, QuoteRequest } from '../interfaces';
+import { Setting } from './';
 import * as moment from 'moment-timezone';
 
 export class MarketService {
@@ -11,6 +12,7 @@ export class MarketService {
     });
   }
   public static quote(request: QuoteRequest): Array<Quote> {
+    let localTz = Setting.localTimeZone();
 
     let part: Part = {
 						manufacture: 'Volvo',
@@ -20,9 +22,10 @@ export class MarketService {
 
     let quote1: Quote = {
       id: 0,
+      vehicle: request.vehicle,
       cost: 400.00,
-      scheduleDate: moment().tz('America/New_York').add(5, 'minutes').toDate(),
-      expiresAt: moment().tz('America/New_York').add(15, 'minutes').toDate(),
+      scheduleDate: moment().tz(localTz).add(5, 'minutes').toDate(),
+      expiresAt: moment().tz(localTz).add(15, 'minutes').toDate(),
       distance: 5,
       estimatedTimeInShop: 90,
       repairLocation: {
@@ -45,9 +48,10 @@ export class MarketService {
 
     let quote2: Quote = {
       id: 0,
+      vehicle: request.vehicle,
       cost: 300.00,
-      scheduleDate: moment().tz('America/New_York').add(1, 'days').toDate(),
-      expiresAt: moment().tz('America/New_York').add(60, 'minutes').toDate(),
+      scheduleDate: moment().tz(localTz).add(1, 'days').toDate(),
+      expiresAt: moment().tz(localTz).add(60, 'minutes').toDate(),
       distance: 1584,
       estimatedTimeInShop: 45,
       repairLocation: {
