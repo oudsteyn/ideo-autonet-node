@@ -114,5 +114,6 @@ export interface WorkOrder {
       vehicle: Vehicle;
       scheduledDate: Date;
       laborCost: number;
+      alert: string;
       items: Array<WorkOrderItem>;
 }

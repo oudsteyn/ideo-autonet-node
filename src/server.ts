@@ -1,4 +1,5 @@
-import { MarketController, ScheduleController, VehicleEventController, WorkOrderController } from './controllers';
+import { MarketController, ScheduleController, VehicleEquipmentController,
+  VehicleEventController, WorkOrderController } from './controllers';
 import { Setting, StatusCodes } from './services';
 
 import * as bodyParser from 'body-parser';
@@ -27,6 +28,12 @@ export class Server {
 
     this._app.get('/api/vehicle/event', this.validateApiKey,
       (req: express.Request, res: express.Response) => VehicleEventController.list(req, res));
+
+    this._app.get('/api/vehicle/event', this.validateApiKey,
+      (req: express.Request, res: express.Response) => VehicleEventController.list(req, res));
+
+    this._app.post('/api/vehicle/equipment/change', this.validateApiKey,
+      (req: express.Request, res: express.Response) => VehicleEquipmentController.post(req, res));
 
     this._app.post('/api/market/quote', this.validateApiKey,
       (req: express.Request, res: express.Response) => MarketController.quote(req, res));

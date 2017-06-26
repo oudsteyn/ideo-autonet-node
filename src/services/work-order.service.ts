@@ -17,7 +17,7 @@ export class WorkOrderService {
       part: {
         manufacture: 'Volvo',
         number: '30756213',
-        description: 'Steering Wheel',
+        description: 'Airbag',
         rfidTag: '',
       },
       cost: partCost,
@@ -30,6 +30,7 @@ export class WorkOrderService {
       vehicle: quote.vehicle,
       scheduledDate: quote.scheduleDate,
       laborCost: labor,
+      alert: '',
       items: new Array<WorkOrderItem>(item),
     };
 
@@ -55,6 +56,29 @@ export class WorkOrderService {
     });
   }
 
+  public static firstInWorkingStatus(): WorkOrder {
+    return this.workOrders.find( wo => {
+      return wo.status === 'Working';
+    });
+  }
+
+  public static setAlert(id: number, message: string): WorkOrder {
+    let workOrder = this.get(id);
+    if (workOrder) {
+      workOrder.alert = message;
+    }
+
+    return workOrder;
+  }
+
+  public static clearAlert(id: number): WorkOrder {
+    let workOrder = this.get(id);
+    if (workOrder) {
+      workOrder.alert = '';
+    }
+
+    return workOrder;
+  }
   public static setStatus(id: number, status: string): WorkOrder {
     let workOrder = this.get(id);
     if (workOrder) {

@@ -17,7 +17,7 @@ export class MarketService {
     let part: Part = {
 						manufacture: 'Volvo',
 						number: '30756213',
-            description: 'Steering Wheel',
+            description: 'Airbag',
 					};
 
     let quote1: Quote = {
