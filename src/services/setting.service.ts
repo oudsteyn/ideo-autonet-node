@@ -16,6 +16,9 @@ export class Setting {
     return process.env.apiKey;
   }
 
+  public static appApiKey(): string {
+    return process.env.appApiKey;
+  }
   public static localTimeZone(): string {
     return process.env.localTimeZone;
   }

@@ -12,7 +12,7 @@ export class Server {
   private _apiKey: string;
 
   constructor(app?: express.Application) {
-    this._apiKey = Setting.apiKey();
+    this._apiKey = Setting.appApiKey();
     this._app = app || express();
     this._app.use(bodyParser.json());
   }
@@ -75,7 +75,7 @@ export class Server {
   }
 
   private validateApiKey(req, res, next) {
-    let apiKey = Setting.apiKey();
+    let apiKey = Setting.appApiKey();
     let header = req.get('X-Api-Key');
 
     if (apiKey && apiKey.length > 10 && apiKey === header) {
