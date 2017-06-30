@@ -5,7 +5,7 @@ export class Setting {
   }
 
   public static apiBaseUrl(): string {
-    return process.env.API_BASE_URL;
+    return process.env.apiBaseUrl;
   }
 
   public static recordsUrl(): string {
@@ -16,9 +16,18 @@ export class Setting {
     return process.env.apiKey;
   }
 
+  public static apiUserName(): string {
+    return process.env.apiUsername;
+  }
+
+  public static apiDatastoreId(): string {
+    return process.env.apiDatastoreId;
+  }
+
   public static appApiKey(): string {
     return process.env.appApiKey;
   }
+
   public static localTimeZone(): string {
     return process.env.localTimeZone;
   }

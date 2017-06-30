@@ -117,3 +117,18 @@ export interface WorkOrder {
       alert: string;
       items: Array<WorkOrderItem>;
 }
+
+export interface HistoryListRecord {
+  id: string;
+  timestamp: Date;
+}
+
+export interface HistoryRecord {
+  id: string;
+  type: string;
+  odometer: number;
+  message: string;
+
+  location?: string;
+  createdAt: Date;
+}

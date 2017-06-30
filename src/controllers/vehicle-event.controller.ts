@@ -15,4 +15,12 @@ export class VehicleEventController {
     return response.send({ events: VehicleEventService.list()});
   }
 
+  public static all(request: express.Request, response: express.Response) {
+    let event = request.body.event;
+
+    VehicleEventService.allEvents()
+    .then( events => {
+      return response.send({ events: events });
+    });
+  }
 }
