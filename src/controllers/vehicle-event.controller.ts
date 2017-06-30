@@ -20,6 +20,13 @@ export class VehicleEventController {
 
     VehicleEventService.allEvents()
     .then( events => {
+      events = events.filter( e => {
+        return e.type && e.type.trim().length > 0;
+      })
+      .sort((a, b) => {
+        return b.createdAt.getTime() - a.createdAt.getTime();
+      });
+
       return response.send({ events: events });
     });
   }

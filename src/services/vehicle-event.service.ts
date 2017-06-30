@@ -59,7 +59,7 @@ export class VehicleEventService {
 
         let promises = new Array<Promise<HistoryRecord>>();
         let json = JSON.parse(body);
-        json.records.every( record => {
+        json.records.forEach( record => {
           promises.push(this.getRecord(record.id));
         });
 
